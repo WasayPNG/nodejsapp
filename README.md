@@ -1,14 +1,14 @@
 # nodejsapp
-Basic NodeJS application with a Dockerfile
+Basic NodeJS application with a Dockerfile and docker-compose.yml files
 
 On a machine that has Docker Engine installed, use these commands inside the project directory:
 
-``docker build .``
+``docker build -t nodejs-basic-app .``
 
-After you create the image, create a container and export local port 3000 to port 80 from the container using ``-p`` flag:
+You can find the docker image name using command ``docker images`` with tag ``nodejs-basic-app``
 
-``docker run -p 3000:80 <docker image>``
+After you create the image use command ``docker compose up -d`` to start the container detached from that terminal.
 
-You can find the docker image name using command ``docker images``
+After you use the ``docker compose`` command you can open ``localhost:3000`` in any browser in local machine.
 
-After you use the ``docker run`` command you can open ``localhost:3000`` in any browser in local machine
+To stop the container, use ``docker compose down`` in the project directory. 
