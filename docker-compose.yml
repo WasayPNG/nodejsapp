@@ -1,0 +1,18 @@
+version: '3.8'
+services:
+  nodejs-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:80"     #Mapeaza portul 80 din interiorul containerului pe portul 3000 al sistemului gazda
+        # Sectiunea "deploy" este suportata doar in contextul orchestrarii Docker Swarm
+        # Alternativa la aceasta sectiune este rularea comenzii "docker run" cu parametrii --memory si --cpus
+        #    deploy:
+        #      resources:
+        #        limits:
+        #        memory: 512M  #Limiteaza memoria la 512MB
+        #        cpus: '1.0'   #Limiteaza memoria la 1 CPU
+        #      reservations:
+        #        memory: 256M  #Ofera rezerve de memorie de pana la 256MB
+        #        cpus: '0.5'   #Ofera rezerve CPU de pana la 0.5 CPU
